@@ -1,0 +1,60 @@
+–gtp –threads 6 -v1000 –noponder -w C:\Programs\leela-zero-0.17-cpuonly-win64\weights.txt
+
+--gtp --lagbuffer 0 --weights C:/Programs/leela-zero-0.17-cpuonly-win64/networks/0a84.gz
+
+C:/Programs/leela-zero-0.17-cpuonly-win64/leelaz.exe
+--gtp --lagbuffer 0 --weights C:/Programs/leela-zero-0.17-cpuonly-win64/networks/0a84.gz
+time_settings 0 6 1
+
+
+C:\Programs\leela-zero-0.17-cpuonly-win64>leelaz.exe --help
+Leela Zero 0.17  Copyright (C) 2017-2019  Gian-Carlo Pascutto and contributors
+This program comes with ABSOLUTELY NO WARRANTY.
+This is free software, and you are welcome to redistribute it
+under certain conditions; see the COPYING file for details.
+
+
+Generic options:
+  -h [ --help ]                         Show commandline options.
+  -g [ --gtp ]                          Enable GTP mode.
+  -t [ --threads ] arg (=0)             Number of threads to use. Select 0 to
+                                        let leela-zero pick a reasonable
+                                        default.
+  -p [ --playouts ] arg                 Weaken engine by limiting the number of
+                                        playouts. Requires --noponder.
+  -v [ --visits ] arg                   Weaken engine by limiting the number of
+                                        visits.
+  -b [ --lagbuffer ] arg (=100)         Safety margin for time usage in
+                                        centiseconds.
+  -r [ --resignpct ] arg (=-1)          Resign when winrate is less than x%.
+                                        -1 uses 10% but scales for handicap.
+  -w [ --weights ] arg (=C:\Programs\leela-zero-0.17-cpuonly-win64\best-network)
+                                        File with network weights.
+  -l [ --logfile ] arg                  File to log input/output to.
+  -q [ --quiet ]                        Disable all diagnostic output.
+  --timemanage arg (=auto)              [auto|on|off|fast|no_pruning] Enable
+                                        time management features.
+                                        auto = no_pruning when using -n,
+                                        otherwise on.
+                                        on = Cut off search when the best move
+                                        can't change, but use full time if
+                                        moving faster doesn't save time.
+                                        fast = Same as on but always plays
+                                        faster.
+                                        no_pruning = For self play training
+                                        use.
+
+  --noponder                            Disable thinking on opponent's time.
+  --benchmark                           Test network and exit. Default args:
+                                        -v3200 --noponder -m0 -t1 -s1.
+
+Self-play options:
+  -n [ --noise ]                        Enable policy network randomization.
+  -s [ --seed ] arg                     Random number generation seed.
+  -d [ --dumbpass ]                     Don't use heuristics for smarter
+                                        passing.
+  -m [ --randomcnt ] arg (=0)           Play more randomly the first x moves.
+  --randomvisits arg (=1)               Don't play random moves if they have <=
+                                        x visits.
+  --randomtemp arg (=1)                 Temperature to use for random move
+                                        selection.
